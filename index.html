@@ -83,55 +83,46 @@
         &copy; 2025 External Chat Test Site
     </footer>
 
-   <1-- <script>
-        // Example: simulate your custom user data (optional)
-        window.addEventListener("onEmbeddedMessagingReady", () => {
-            console.log("Embedded Messaging Ready ");
+    <!-- REAL SCRIPT BELOW -->
+<script type='text/javascript'>
+    function initEmbeddedMessaging() {
+        try {
+            embeddedservice_bootstrap.settings.language = 'en_US';
 
-            // Example: set a hidden field dynamically
-            embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-                "UserType": "External Tester",
-                "Email": "tester@example.com"
-            });
+            embeddedservice_bootstrap.init(
+                '00DgK000004AM8D',
+                'Agent_deployment',
+                'https://orgfarm-15424e14d8-dev-ed.develop.my.site.com/ESWAgentdeployment1752820471517',
+                {
+                    scrt2URL: 'https://orgfarm-15424e14d8-dev-ed.develop.my.salesforce-scrt.com'
+                }
+            );
+        } catch (err) {
+            console.error('Error loading Embedded Messaging: ', err);
+        }
+    };
+
+    // ⭐ Hidden Prechat (Your Hardcoded Account Id)
+    window.addEventListener("onEmbeddedMessagingReady", () => {
+        console.log("onEmbeddedMessagingReady fired");
+
+        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+            "accId": "001gK000006qKLwQAM"   // 🔥 Replace with your Account Id
         });
+    });
 
-        // You can trigger the chat manually
-        document.getElementById("startChatBtn").addEventListener("click", () => {
-            try {
-                embeddedservice_bootstrap.utilAPI.launchChat();
-            } catch (e) {
-                alert("Chat not ready yet. Please wait or check script load.");
-            }
-        });
-    </script>-->
-
-    <!-- 🧠 Paste your Salesforce Embedded Service / Messaging bootstrap snippet BELOW this line -->
-    <!-- Example (replace with your actual code): -->
-<script type='text/javascript' src='https://orgfarm-15424e14d8-dev-ed.develop.my.site.com/ESWAgentdeployment1752820471517/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-	   <script type='text/javascript'>
-	function initEmbeddedMessaging() {
-		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-
-			embeddedservice_bootstrap.init(
-				'00DgK000004AM8D',
-				'Agent_deployment',
-				'https://orgfarm-15424e14d8-dev-ed.develop.my.site.com/ESWAgentdeployment1752820471517',
-				{
-					scrt2URL: 'https://orgfarm-15424e14d8-dev-ed.develop.my.salesforce-scrt.com'
-				}
-			);
-		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
-		}
-	};
+    // Start chat button
+    document.getElementById("startChatBtn").addEventListener("click", () => {
+        try {
+            embeddedservice_bootstrap.utilAPI.launchChat();
+        } catch (e) {
+            alert("Chat not ready yet. Please wait or check script load.");
+        }
+    });
 </script>
+
+<!-- Messaging Bootstrap Script -->
 <script type='text/javascript' src='https://orgfarm-15424e14d8-dev-ed.develop.my.site.com/ESWAgentdeployment1752820471517/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
 </body>
 </html>
-
-
-
-
-
