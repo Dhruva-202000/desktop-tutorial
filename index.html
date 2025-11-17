@@ -64,28 +64,17 @@
             background-color: #005fb2;
         }
     </style>
-</head>
-
-<body>
-    <header>
-        <h1>Agentforce Chat Integration Test</h1>
-    </header>
-
-   
-
-    <!-- ========================================================== -->
-    <!-- ==========  EMBEDDED MESSAGING INITIALIZATION  =========== -->
-    <!-- ========================================================== -->
-
+	
 <script type='text/javascript'>
-    console.log("HTML loaded – waiting for messaging script...");
-
+    
     function initEmbeddedMessaging() {
         console.log("initEmbeddedMessaging() called");
 
         try {
             embeddedservice_bootstrap.settings.language = 'en_US';
-
+             embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+            "Test": "001gK000006qKLwQAM"
+        });
             embeddedservice_bootstrap.init(
                 '00DgK000004AM8D',
                 'Agent_deployment',
@@ -99,27 +88,28 @@
         } catch (err) {
             console.error(" Error loading Embedded Messaging:", err);
         }
-    }
-   //Var AccountId = "001gK000006qKLwQAM";
-    //  Hidden Prechat (Your hardcoded accId)
-    window.addEventListener("onEmbeddedMessagingReady", () => {
-        console.log(" onEmbeddedMessagingReady event fired");
-
-        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-            "Test": "001gK000006qKLwQAM"
-        });
-
-        console.log(" Hidden Prechat Field Sent");
-    });
+    }    
 </script>
 
 <!-- Messaging Bootstrap Script -->
 <script type='text/javascript' src='https://orgfarm-15424e14d8-dev-ed.develop.my.site.com/ESWAgentdeployment1752820471517/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
 </script>
+</head>
+
+<body>
+    <header>
+        <h1>Agentforce Chat Integration Test</h1>
+    </header>
+
+   
+
+    <!-- ========================================================== -->
+    <!-- ==========  EMBEDDED MESSAGING INITIALIZATION  =========== -->
+    <!-- ========================================================== -->
+
 </body>
 </html>
-
 
 
 
