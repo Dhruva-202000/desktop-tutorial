@@ -107,18 +107,11 @@
         console.log("onEmbeddedMessagingReady fired");
 
         embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-            "storeAccId": "001gK000006qKLwQAM"   // 🔥 Replace with your Account Id
+            "accId": "001gK000006qKLwQAM"   // 🔥 Replace with your Account Id
         });
     });
 
-    // Start chat button
-    document.getElementById("startChatBtn").addEventListener("click", () => {
-        try {
-            embeddedservice_bootstrap.utilAPI.launchChat();
-        } catch (e) {
-            alert("Chat not ready yet. Please wait or check script load.");
-        }
-    });
+   
 </script>
 
 <!-- Messaging Bootstrap Script -->
@@ -126,4 +119,5 @@
 
 </body>
 </html>
+
 
