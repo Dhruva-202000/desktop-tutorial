@@ -64,6 +64,30 @@
             background-color: #005fb2;
         }
     </style>
+    <script type='text/javascript'>
+    function initEmbeddedMessaging() {
+        try {
+            embeddedservice_bootstrap.settings.language = 'en_US';
+             
+            embeddedservice_bootstrap.init(
+                '00DgK000004AM8D',
+                'Agent_deployment',
+                'https://orgfarm-15424e14d8-dev-ed.develop.my.site.com/ESWAgentdeployment1752820471517',
+                {
+                    scrt2URL: 'https://orgfarm-15424e14d8-dev-ed.develop.my.salesforce-scrt.com'
+                }
+            );
+        } catch (err) {
+            console.error('Error loading Embedded Messaging: ', err);
+        }
+    }
+window.addEventListener("onEmbeddedMessagingReady", e => {
+    console.log("Before Prechat ");
+             embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({ "Test": "001gK000006qKLwQAM"});
+            console.log("After Prechat ");
+};
+</script>
+    
 </head>
 
 <body>
@@ -84,33 +108,14 @@
     </footer>
 
     <!-- REAL SCRIPT BELOW -->
-<script type='text/javascript'>
-    function initEmbeddedMessaging() {
-        try {
-            embeddedservice_bootstrap.settings.language = 'en_US';
-             console.log("Before Prechat ");
-             embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({ "Test": "001gK000006qKLwQAM"});
-            console.log("After Prechat ");
-            embeddedservice_bootstrap.init(
-                '00DgK000004AM8D',
-                'Agent_deployment',
-                'https://orgfarm-15424e14d8-dev-ed.develop.my.site.com/ESWAgentdeployment1752820471517',
-                {
-                    scrt2URL: 'https://orgfarm-15424e14d8-dev-ed.develop.my.salesforce-scrt.com'
-                }
-            );
-        } catch (err) {
-            console.error('Error loading Embedded Messaging: ', err);
-        }
-    }
 
-</script>
 
 <!-- Messaging Bootstrap Script -->
 <script type='text/javascript' src='https://orgfarm-15424e14d8-dev-ed.develop.my.site.com/ESWAgentdeployment1752820471517/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
 </body>
 </html>
+
 
 
 
