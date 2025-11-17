@@ -88,7 +88,11 @@
     function initEmbeddedMessaging() {
         try {
             embeddedservice_bootstrap.settings.language = 'en_US';
-
+             console.log("Before Prechat ");
+             embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+            "Test": "001gK000006qKLwQAM"   //  Replace with your Account Id
+        });
+            console.log("After Prechat ");
             embeddedservice_bootstrap.init(
                 '00DgK000004AM8D',
                 'Agent_deployment',
@@ -103,13 +107,10 @@
     };
 
     //  Hidden Prechat (Your Hardcoded Account Id)
-    window.addEventListener("onEmbeddedMessagingReady", () => {
-        console.log("onEmbeddedMessagingReady fired");
+   
+       
 
-        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-            "accId": "001gK000006qKLwQAM"   //  Replace with your Account Id
-        });
-    });
+       
 
    
 </script>
@@ -119,4 +120,5 @@
 
 </body>
 </html>
+
 
