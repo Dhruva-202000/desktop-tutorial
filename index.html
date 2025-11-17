@@ -71,17 +71,7 @@
         <h1>Agentforce Chat Integration Test</h1>
     </header>
 
-    <main>
-        <div class="test-section">
-            <h2>Test Embedded Messaging</h2>
-            <p>Click below to open chat with pre-chat or hidden fields setup.</p>
-            <button id="startChatBtn">Start Chat</button>
-        </div>
-    </main>
-
-    <footer>
-        &copy; 2025 External Chat Test Site
-    </footer>
+   
 
     <!-- ========================================================== -->
     <!-- ==========  EMBEDDED MESSAGING INITIALIZATION  =========== -->
@@ -107,34 +97,22 @@
 
             console.log("Messaging init executed");
         } catch (err) {
-            console.error("❌ Error loading Embedded Messaging:", err);
+            console.error(" Error loading Embedded Messaging:", err);
         }
     }
-
-    // ⭐ Hidden Prechat (Your hardcoded accId)
+   Var AccountId =" 001gK000006qKLwQAM"
+    //  Hidden Prechat (Your hardcoded accId)
     window.addEventListener("onEmbeddedMessagingReady", () => {
-        console.log("🔥 onEmbeddedMessagingReady event fired");
+        console.log(" onEmbeddedMessagingReady event fired");
 
         embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-            accId: '001gK000006qKLwQAM'
+            "Test": AccountId
         });
 
-        console.log("✅ Hidden Prechat Field Sent");
+        console.log(" Hidden Prechat Field Sent");
     });
 
-    // Launch chat
-    window.addEventListener("DOMContentLoaded", () => {
-        console.log("DOM fully loaded");
 
-        document.getElementById("startChatBtn").addEventListener("click", () => {
-            try {
-                embeddedservice_bootstrap.utilAPI.launchChat();
-                console.log("Chat launch requested");
-            } catch (e) {
-                console.error("Chat not ready:", e);
-            }
-        });
-    });
 </script>
 
 <!-- Messaging Bootstrap Script (ONLY ONE) -->
@@ -146,6 +124,7 @@
 
 </body>
 </html>
+
 
 
 
