@@ -83,9 +83,16 @@
         &copy; 2025 External Chat Test Site
     </footer>
 
-    <!-- REAL SCRIPT BELOW -->
-<script type='text/javascript'>
+    <!-- ========================================================== -->
+    <!-- ==========  EMBEDDED MESSAGING INITIALIZATION  =========== -->
+    <!-- ========================================================== -->
+
+<script>
+    console.log("HTML loaded – waiting for messaging script...");
+
     function initEmbeddedMessaging() {
+        console.log("initEmbeddedMessaging() called");
+
         try {
             embeddedservice_bootstrap.settings.language = 'en_US';
 
@@ -97,27 +104,45 @@
                     scrt2URL: 'https://orgfarm-15424e14d8-dev-ed.develop.my.salesforce-scrt.com'
                 }
             );
-        } catch (err) {
-            console.error('Error loading Embedded Messaging: ', err);
-        }
-    };
 
-    // ⭐ Hidden Prechat (Your Hardcoded Account Id)
+            console.log("Messaging init executed");
+        } catch (err) {
+            console.error("❌ Error loading Embedded Messaging:", err);
+        }
+    }
+
+    // ⭐ Hidden Prechat (Your hardcoded accId)
     window.addEventListener("onEmbeddedMessagingReady", () => {
-        console.log("onEmbeddedMessagingReady fired");
+        console.log("🔥 onEmbeddedMessagingReady event fired");
 
         embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-            "accId": "001gK000006qKLwQAM"   // 🔥 Replace with your Account Id
+            "accId": "001XXXXXXXREPLACE_WITH_YOUR_ID"
         });
+
+        console.log("✅ Hidden Prechat Field Sent");
     });
 
-   
+    // Launch chat
+    window.addEventListener("DOMContentLoaded", () => {
+        console.log("DOM fully loaded");
+
+        document.getElementById("startChatBtn").addEventListener("click", () => {
+            try {
+                embeddedservice_bootstrap.utilAPI.launchChat();
+                console.log("Chat launch requested");
+            } catch (e) {
+                console.error("Chat not ready:", e);
+            }
+        });
+    });
 </script>
 
-<!-- Messaging Bootstrap Script -->
-<script type='text/javascript' src='https://orgfarm-15424e14d8-dev-ed.develop.my.site.com/ESWAgentdeployment1752820471517/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+<!-- Messaging Bootstrap Script (ONLY ONE) -->
+<script 
+    type="text/javascript" 
+    src="https://orgfarm-15424e14d8-dev-ed.develop.my.site.com/ESWAgentdeployment1752820471517/assets/js/bootstrap.min.js" 
+    onload="initEmbeddedMessaging()">
+</script>
 
 </body>
 </html>
-
-
