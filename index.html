@@ -89,9 +89,7 @@
         try {
             embeddedservice_bootstrap.settings.language = 'en_US';
              console.log("Before Prechat ");
-             embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-            "Test": "001gK000006qKLwQAM"   //  Replace with your Account Id
-        });
+             embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({ "Test": "001gK000006qKLwQAM"});
             console.log("After Prechat ");
             embeddedservice_bootstrap.init(
                 '00DgK000004AM8D',
@@ -104,15 +102,8 @@
         } catch (err) {
             console.error('Error loading Embedded Messaging: ', err);
         }
-    };
+    }
 
-    //  Hidden Prechat (Your Hardcoded Account Id)
-   
-       
-
-       
-
-   
 </script>
 
 <!-- Messaging Bootstrap Script -->
@@ -120,5 +111,6 @@
 
 </body>
 </html>
+
 
 
