@@ -81,6 +81,7 @@ body {
 
 /* HERO */
 .hero {
+    position: relative;
     height: 75vh;
     background: url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d') center/cover no-repeat;
     display: flex;
@@ -88,8 +89,20 @@ body {
     padding: 0 60px;
 }
 
+/* OVERLAY */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+}
+
+/* HERO CONTENT */
 .hero-content {
+    position: relative;
+    z-index: 1;
     max-width: 500px;
+    color: white;
 }
 
 .hero h1 {
@@ -99,7 +112,7 @@ body {
 
 .hero p {
     font-size: 16px;
-    color: #444;
+    color: #e0e0e0;
 }
 
 /* BUTTON */
@@ -123,6 +136,7 @@ body {
     display: flex;
     gap: 30px;
     margin-top: 30px;
+    flex-wrap: wrap;
 }
 
 .card {
@@ -132,6 +146,7 @@ body {
     width: 260px;
 }
 
+/* FOOTER */
 footer {
     padding: 20px;
     text-align: center;
@@ -140,8 +155,33 @@ footer {
 </style>
 
 <script>
+function initEmbeddedMessaging() {
+    try {
+        embeddedservice_bootstrap.settings.language = 'en_US';
+
+        embeddedservice_bootstrap.init(
+            '00DgK000004AM8D',
+            'Agent_deployment',
+            'https://orgfarm-15424e14d8-dev-ed.develop.my.site.com/ESWAgentdeployment1752820471517',
+            {
+                scrt2URL: 'https://orgfarm-15424e14d8-dev-ed.develop.my.salesforce-scrt.com'
+            }
+        );
+    } catch (err) {
+        console.error('Error loading Embedded Messaging: ', err);
+    }
+}
+
+/* PRECHAT FIELDS */
+window.addEventListener("onEmbeddedMessagingReady", () => {
+    embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+        "Building_Name": "Gotham Point"
+    });
+});
+
+/* LOGIN REDIRECT */
 function goToLogin() {
-    const experienceURL = "https://your-experience-site-url.com"; // Replace later
+    const experienceURL = "https://your-experience-site-url.com"; // 🔴 Replace later
     window.location.href = experienceURL;
 }
 </script>
@@ -210,6 +250,10 @@ function goToLogin() {
 <footer>
     © 2025 University Portal
 </footer>
+
+<!-- CHATBOT SCRIPT -->
+<script src='https://orgfarm-15424e14d8-dev-ed.develop.my.site.com/ESWAgentdeployment1752820471517/assets/js/bootstrap.min.js'
+onload='initEmbeddedMessaging()'></script>
 
 </body>
 </html>
