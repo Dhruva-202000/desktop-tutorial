@@ -49,6 +49,7 @@ body {
     background: white;
     width: 260px;
     border: 1px solid #eee;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .dropdown p {
@@ -83,10 +84,11 @@ body {
 .hero {
     position: relative;
     height: 75vh;
-    background: url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d') center/cover no-repeat;
+    background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644') center/cover no-repeat;
     display: flex;
     align-items: center;
     padding: 0 60px;
+    filter: brightness(0.85);
 }
 
 /* OVERLAY */
@@ -106,24 +108,29 @@ body {
 }
 
 .hero h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
+    font-size: 44px;
+    margin-bottom: 12px;
 }
 
 .hero p {
-    font-size: 16px;
+    font-size: 17px;
     color: #e0e0e0;
 }
 
 /* BUTTON */
 .btn {
     margin-top: 20px;
-    padding: 10px 20px;
+    padding: 12px 22px;
     background: #f5a623;
     border: none;
     color: white;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 15px;
+}
+
+.btn:hover {
+    background: #d98e1f;
 }
 
 /* SECTION */
@@ -144,6 +151,12 @@ body {
     padding: 25px;
     border: 1px solid #eee;
     width: 260px;
+    border-radius: 6px;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
 }
 
 /* FOOTER */
@@ -220,7 +233,7 @@ function goToLogin() {
 <!-- HERO -->
 <div class="hero">
     <div class="hero-content">
-        <h1>Inviting Applications</h1>
+        <h1>Shape Your Future</h1>
         <p>Admissions open for Undergraduate and Postgraduate programmes.</p>
         <button class="btn">Apply Now</button>
     </div>
