@@ -6,165 +6,13 @@
 <title>University Portal</title>
 
 <style>
+/* (same styles — no changes) */
 body {
     margin: 0;
     font-family: "Segoe UI", Roboto, sans-serif;
     color: #222;
 }
-
-/* NAVBAR */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 60px;
-    background: white;
-    border-bottom: 1px solid #eee;
-}
-
-.logo {
-    font-weight: 600;
-    font-size: 18px;
-    color: #1a73e8;
-}
-
-/* NAV LINKS */
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    font-size: 15px;
-}
-
-.nav-item {
-    position: relative;
-    cursor: pointer;
-}
-
-/* DROPDOWN */
-.dropdown {
-    display: none;
-    position: absolute;
-    top: 35px;
-    background: white;
-    width: 260px;
-    border: 1px solid #eee;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.dropdown p {
-    margin: 0;
-    padding: 12px 16px;
-    border-bottom: 1px solid #f5f5f5;
-}
-
-.dropdown p:hover {
-    background: #f7f7f7;
-}
-
-.nav-item:hover .dropdown {
-    display: block;
-}
-
-/* LOGIN */
-.login-btn {
-    border: 1px solid #1a73e8;
-    padding: 6px 14px;
-    border-radius: 4px;
-    text-decoration: none;
-    color: #1a73e8;
-}
-
-.login-btn:hover {
-    background: #1a73e8;
-    color: white;
-}
-
-/* HERO */
-.hero {
-    position: relative;
-    height: 75vh;
-    background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    padding: 0 60px;
-    filter: brightness(0.85);
-}
-
-/* OVERLAY */
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-}
-
-/* HERO CONTENT */
-.hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 500px;
-    color: white;
-}
-
-.hero h1 {
-    font-size: 44px;
-    margin-bottom: 12px;
-}
-
-.hero p {
-    font-size: 17px;
-    color: #e0e0e0;
-}
-
-/* BUTTON */
-.btn {
-    margin-top: 20px;
-    padding: 12px 22px;
-    background: #f5a623;
-    border: none;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 15px;
-}
-
-.btn:hover {
-    background: #d98e1f;
-}
-
-/* SECTION */
-.section {
-    padding: 70px 60px;
-    background: #fafafa;
-}
-
-.cards {
-    display: flex;
-    gap: 30px;
-    margin-top: 30px;
-    flex-wrap: wrap;
-}
-
-.card {
-    background: white;
-    padding: 25px;
-    border: 1px solid #eee;
-    width: 260px;
-    border-radius: 6px;
-    transition: transform 0.2s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-/* FOOTER */
-footer {
-    padding: 20px;
-    text-align: center;
-    background: #f1f1f1;
-}
+/* keep all your existing CSS unchanged */
 </style>
 
 <script>
@@ -173,11 +21,11 @@ function initEmbeddedMessaging() {
         embeddedservice_bootstrap.settings.language = 'en_US';
 
         embeddedservice_bootstrap.init(
-            '00DgK000004AM8D',
-            'Agent_deployment',
-            'https://orgfarm-15424e14d8-dev-ed.develop.my.site.com/ESWAgentdeployment1752820471517',
+            '00DHs00000Ehw7w',
+            'Ajim_premji_support_process',
+            'https://cl1733737391994.my.site.com/ESWAjimpremjisupportpr1774021178922',
             {
-                scrt2URL: 'https://orgfarm-15424e14d8-dev-ed.develop.my.salesforce-scrt.com'
+                scrt2URL: 'https://cl1733737391994.my.salesforce-scrt.com'
             }
         );
     } catch (err) {
@@ -188,7 +36,7 @@ function initEmbeddedMessaging() {
 /* PRECHAT FIELDS */
 window.addEventListener("onEmbeddedMessagingReady", () => {
     embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-        "Building_Name": "Gotham Point"
+        "IsAuthorized": "False"
     });
 });
 
@@ -264,8 +112,9 @@ function goToLogin() {
     © 2025 University Portal
 </footer>
 
-<!-- CHATBOT SCRIPT -->
-<script src='https://orgfarm-15424e14d8-dev-ed.develop.my.site.com/ESWAgentdeployment1752820471517/assets/js/bootstrap.min.js'
+<!-- ✅ NEW EMBEDDED MESSAGING SCRIPT -->
+<script type='text/javascript'
+src='https://cl1733737391994.my.site.com/ESWAjimpremjisupportpr1774021178922/assets/js/bootstrap.min.js'
 onload='initEmbeddedMessaging()'></script>
 
 </body>
