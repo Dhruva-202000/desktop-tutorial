@@ -163,15 +163,11 @@ function initEmbeddedMessaging() {
     }
 }
 
-/* ✅ PRECHAT (Guest + Logged-in Handling) */
+/* ✅ PRECHAT HANDLING */
 window.addEventListener("onEmbeddedMessagingReady", () => {
     console.log("✅ Embedded Messaging Ready");
 
-    /*
-        🔥 CHANGE THIS FLAG FOR TESTING
-        true  → Logged-in user
-        false → Guest user
-    */
+    // 🔥 Change this for testing
     const isLoggedIn = false;
 
     let hiddenFields;
@@ -180,13 +176,12 @@ window.addEventListener("onEmbeddedMessagingReady", () => {
         // 🔐 Logged-in user
         hiddenFields = {
             "IsAuthorized": "true",
-            "ContactId": "003Hs00005nGfXaIAK" // 👈 replace with real ContactId
+            "ContactId": "003Hs00005nGfXaIAK"
         };
     } else {
         // 👤 Guest user
         hiddenFields = {
-            "IsAuthorized": "false" || "IsAuthorized": "False" ,
-            "ContactId": " "
+            "IsAuthorized": "false"
         };
     }
 
@@ -259,7 +254,7 @@ function goToLogin() {
     © 2025 University Portal
 </footer>
 
-<!-- ✅ CHATBOT -->
+<!-- ✅ CHATBOT SCRIPT -->
 <script type="text/javascript"
 src="https://cl1733737391994.my.site.com/ESWAjimpremjisupportpr1774021178922/assets/js/bootstrap.min.js"
 onload="initEmbeddedMessaging()">
