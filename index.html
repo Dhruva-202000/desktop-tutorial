@@ -180,13 +180,13 @@ window.addEventListener("onEmbeddedMessagingReady", () => {
         // 🔐 Logged-in user
         hiddenFields = {
             "IsAuthorized": "true",
-            "ContactId": "003XXXXXXXXXXXX" // 👈 replace with real ContactId
+            "ContactId": "003Hs00005nGfXaIAK" // 👈 replace with real ContactId
         };
     } else {
         // 👤 Guest user
         hiddenFields = {
-            "IsAuthorized": "false"
-            // ❌ No ContactId
+            "IsAuthorized": "false" || "IsAuthorized": "False" ,
+            "ContactId": " "
         };
     }
 
