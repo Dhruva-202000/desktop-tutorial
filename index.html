@@ -91,7 +91,6 @@ body {
     filter: brightness(0.85);
 }
 
-/* OVERLAY */
 .hero::before {
     content: "";
     position: absolute;
@@ -99,7 +98,6 @@ body {
     background: rgba(0,0,0,0.45);
 }
 
-/* HERO CONTENT */
 .hero-content {
     position: relative;
     z-index: 1;
@@ -185,13 +183,18 @@ function initEmbeddedMessaging() {
     }
 }
 
-/* PRECHAT FIELDS */
+/* ✅ PRECHAT HANDLING */
 window.addEventListener("onEmbeddedMessagingReady", () => {
-    embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+    console.log("✅ Embedded Messaging Ready");
+
+    const hiddenFields = {
         "IsAuthorized": "false"
-    });
+    };
+
+    embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields(hiddenFields);
+
+    console.log("✅ Hidden Prechat Fields Set:", hiddenFields);
 });
-    console.log('Hidden Prechat: ', IsAuthorized);
 
 /* LOGIN REDIRECT */
 function goToLogin() {
@@ -265,9 +268,11 @@ function goToLogin() {
     © 2025 University Portal
 </footer>
 
-<!-- Chatbot Script -->
-<script type='text/javascript' src='https://cl1733737391994.my.site.com/ESWAjimpremjisupportpr1774021178922/assets/js/bootstrap.min.js'
-onload='initEmbeddedMessaging()'></script>
+<!-- CHATBOT -->
+<script type='text/javascript'
+src='https://cl1733737391994.my.site.com/ESWAjimpremjisupportpr1774021178922/assets/js/bootstrap.min.js'
+onload='initEmbeddedMessaging()'>
+</script>
 
 </body>
 </html>
