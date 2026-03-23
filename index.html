@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>University Portal</title>
 
 <style>
@@ -28,12 +28,10 @@ body {
     color: #1a73e8;
 }
 
-/* NAV LINKS */
 .nav-links {
     display: flex;
     align-items: center;
     gap: 30px;
-    font-size: 15px;
 }
 
 .nav-item {
@@ -88,7 +86,6 @@ body {
     display: flex;
     align-items: center;
     padding: 0 60px;
-    filter: brightness(0.85);
 }
 
 .hero::before {
@@ -107,15 +104,8 @@ body {
 
 .hero h1 {
     font-size: 44px;
-    margin-bottom: 12px;
 }
 
-.hero p {
-    font-size: 17px;
-    color: #e0e0e0;
-}
-
-/* BUTTON */
 .btn {
     margin-top: 20px;
     padding: 12px 22px;
@@ -124,11 +114,6 @@ body {
     color: white;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 15px;
-}
-
-.btn:hover {
-    background: #d98e1f;
 }
 
 /* SECTION */
@@ -141,7 +126,6 @@ body {
     display: flex;
     gap: 30px;
     margin-top: 30px;
-    flex-wrap: wrap;
 }
 
 .card {
@@ -150,11 +134,6 @@ body {
     border: 1px solid #eee;
     width: 260px;
     border-radius: 6px;
-    transition: transform 0.2s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
 }
 
 /* FOOTER */
@@ -166,6 +145,7 @@ footer {
 </style>
 
 <script>
+/* ✅ INIT CHAT */
 function initEmbeddedMessaging() {
     try {
         embeddedservice_bootstrap.settings.language = 'en_US';
@@ -179,26 +159,45 @@ function initEmbeddedMessaging() {
             }
         );
     } catch (err) {
-        console.error('Error loading Embedded Messaging: ', err);
+        console.error('❌ Error loading Embedded Messaging: ', err);
     }
 }
 
-/* ✅ PRECHAT HANDLING */
+/* ✅ PRECHAT (Guest + Logged-in Handling) */
 window.addEventListener("onEmbeddedMessagingReady", () => {
     console.log("✅ Embedded Messaging Ready");
 
-    const hiddenFields = {
-        "IsAuthorized": "false"
-    };
+    /*
+        🔥 CHANGE THIS FLAG FOR TESTING
+        true  → Logged-in user
+        false → Guest user
+    */
+    const isLoggedIn = false;
+
+    let hiddenFields;
+
+    if (isLoggedIn) {
+        // 🔐 Logged-in user
+        hiddenFields = {
+            "IsAuthorized": "true",
+            "ContactId": "003XXXXXXXXXXXX" // 👈 replace with real ContactId
+        };
+    } else {
+        // 👤 Guest user
+        hiddenFields = {
+            "IsAuthorized": "false"
+            // ❌ No ContactId
+        };
+    }
 
     embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields(hiddenFields);
 
-    console.log("✅ Hidden Prechat Fields Set:", hiddenFields);
+    console.log("✅ Hidden Prechat Sent:", hiddenFields);
 });
 
 /* LOGIN REDIRECT */
 function goToLogin() {
-    const experienceURL = "https://cl1733737391994.my.site.com/APF/s/login"; 
+    const experienceURL = "https://cl1733737391994.my.site.com/APF/s/login";
     window.location.href = experienceURL;
 }
 </script>
@@ -220,15 +219,12 @@ function goToLogin() {
                 <p>Programmes at a Glance</p>
                 <p>UG Admissions</p>
                 <p>PG Admissions</p>
-                <p>Diplomas & Certificates</p>
-                <p>Professional Development</p>
+                <p>Diplomas</p>
             </div>
         </div>
 
         <div class="nav-item">Research</div>
         <div class="nav-item">People</div>
-        <div class="nav-item">Practice</div>
-        <div class="nav-item">Resources</div>
 
         <a href="#" class="login-btn" onclick="goToLogin()">Login</a>
     </div>
@@ -238,7 +234,7 @@ function goToLogin() {
 <div class="hero">
     <div class="hero-content">
         <h1>Shape Your Future</h1>
-        <p>Admissions open for Undergraduate and Postgraduate programmes.</p>
+        <p>Admissions open for UG & PG programs</p>
         <button class="btn">Apply Now</button>
     </div>
 </div>
@@ -249,17 +245,12 @@ function goToLogin() {
     <div class="cards">
         <div class="card">
             <h3>Undergraduate</h3>
-            <p>Explore foundational programs across disciplines.</p>
+            <p>Explore UG programs</p>
         </div>
 
         <div class="card">
             <h3>Postgraduate</h3>
-            <p>Advanced learning and research-driven programs.</p>
-        </div>
-
-        <div class="card">
-            <h3>Certificates</h3>
-            <p>Short-term professional development courses.</p>
+            <p>Explore PG programs</p>
         </div>
     </div>
 </div>
@@ -268,10 +259,10 @@ function goToLogin() {
     © 2025 University Portal
 </footer>
 
-<!-- CHATBOT -->
-<script type='text/javascript'
-src='https://cl1733737391994.my.site.com/ESWAjimpremjisupportpr1774021178922/assets/js/bootstrap.min.js'
-onload='initEmbeddedMessaging()'>
+<!-- ✅ CHATBOT -->
+<script type="text/javascript"
+src="https://cl1733737391994.my.site.com/ESWAjimpremjisupportpr1774021178922/assets/js/bootstrap.min.js"
+onload="initEmbeddedMessaging()">
 </script>
 
 </body>
